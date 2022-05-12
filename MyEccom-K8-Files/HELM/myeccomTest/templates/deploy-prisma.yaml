@@ -1,0 +1,85 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "1"
+    kompose.cmd: kompose convert
+    kompose.version: 1.19.0 (f63a961c)
+  creationTimestamp: "2022-04-08T21:07:49Z"
+  generation: 1
+  labels:
+    io.kompose.service: prisma
+  name: prisma
+  namespace: {{ .Values.project.namespace }}
+  resourceVersion: "638795"
+  uid: 999e1e01-9e7c-4a4f-a701-0b0aa2c153df
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      io.kompose.service: prisma
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.19.0 (f63a961c)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: prisma
+    spec:
+      containers:
+        - env:
+            - name: PRISMA_CONFIG
+              value: |
+                port: 4466
+                # uncomment the next line and provide the env var PRISMA_MANAGEMENT_API_SECRET=my-secret to activate cluster security
+                # managementApiSecret: my-secret
+                databases:
+                  default:
+                    connector: mysql
+                    host: mysql
+                    user: root
+                    password: prisma
+                    rawAccess: false
+                    port: 3306
+                    migrations: false
+          image: prismagraphql/prisma:1.34
+          imagePullPolicy: IfNotPresent
+          name: prisma
+          ports:
+            - containerPort: 4466
+              protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+status:
+  availableReplicas: 1
+  conditions:
+    - lastTransitionTime: "2022-04-08T21:07:49Z"
+      lastUpdateTime: "2022-04-25T22:36:06Z"
+      message: ReplicaSet "prisma-5d9c684d65" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: "2022-05-03T01:05:16Z"
+      lastUpdateTime: "2022-05-03T01:05:16Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+  observedGeneration: 1
+  readyReplicas: 1
+  replicas: 1
+  updatedReplicas: 1

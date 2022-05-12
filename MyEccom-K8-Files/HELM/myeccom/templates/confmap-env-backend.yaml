@@ -1,0 +1,27 @@
+apiVersion: v1
+data:
+  APP_SECRET: prisma
+  BACKEND_IP: http://myeccom2.com:44444
+  BACKEND_URL: http://myeccom2.com:4444
+  FRONTEND_IP: http://myeccom2.com:7777
+  FRONTEND_URL: http://myeccom2.com:7777
+  MAIL_HOST: smtp.mailtrap.io
+  MAIL_PASS: 74d73a20a356dc
+  MAIL_PORT: "2525"
+  MAIL_USER: 2af1c2bddf929f
+  PORT: "4444"
+  PRISMA_ENDPOINT: http://prisma:4466
+  PRISMA_SECRET: prisma
+  STRIPE_SECRET: sk_test_bh0QAXn1x8LhONmDvaHLDKAu00sCpS9yxT
+  WHITELIST:
+    http://127.0.0.1:4466, http://localhost:4466, http://myeccom.com:4466,
+    http://0.0.0.0:4466/, http://localhost:7777, http://127.0.0.1:7777, http://myeccom2.com:7777,
+    http://localhost:4444, http://127.0.0.1:4444, http://myeccom2.com:4444, http://myeccom2.com,
+    http://prisma, http://backend, http://frontend/, 192.168.64:4:31692
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2022-04-11T17:33:28Z"
+  name: env-backend
+  namespace: {{ .Values.project.namespace }}
+  resourceVersion: "621473"
+  uid: 854ef518-fcf9-407e-8b23-c91e41c69020

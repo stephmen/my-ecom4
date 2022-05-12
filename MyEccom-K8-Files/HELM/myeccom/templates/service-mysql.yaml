@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2022-04-18T15:56:12Z"
+  labels:
+    io.kompose.service: mysql
+  name: mysql
+  namespace: {{ .Values.project.namespace }}
+  resourceVersion: "347903"
+  uid: e4219706-a916-4d7f-b27a-eae44bca3710
+spec:
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+    - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+    - port: 3306
+      protocol: TCP
+      targetPort: 3306
+  selector:
+    io.kompose.service: mysql
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}
