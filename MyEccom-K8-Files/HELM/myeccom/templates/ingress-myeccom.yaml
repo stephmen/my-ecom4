@@ -1,15 +1,8 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  annotations:
-    kubectl.kubernetes.io/last-applied-configuration: |
-      {"apiVersion":"networking.k8s.io/v1","kind":"Ingress","metadata":{"annotations":{},"creationTimestamp":"2022-04-11T02:03:28Z","generation":2,"name":"frontend","namespace":"default","resourceVersion":"187731","uid":"baacf53d-ad1b-4f1d-9ac9-34469b194323"},"spec":{"ingressClassName":"nginx","rules":[{"host":"frontend.myeccom.com","http":{"paths":[{"backend":{"service":{"name":"frontend","port":{"number":7777}}},"path":"/*","pathType":"Exact"}]}},{"host":"backend.myeccom.com","http":{"paths":[{"backend":{"service":{"name":"backend","port":{"number":4444}}},"path":"/graphql","pathType":"Exact"}]}},{"host":"prisma.myeccom.com","http":{"paths":[{"backend":{"service":{"name":"prisma","port":{"number":4466}}},"path":"/*","pathType":"Exact"}]}}]},"status":{"loadBalancer":{"ingress":[{"hostname":"localhost"}]}}}
-  creationTimestamp: "2022-04-11T02:03:28Z"
-  generation: 18
   name: myeccom-ingress
   namespace: {{ .Values.project.namespace }}
-  resourceVersion: "619696"
-  uid: baacf53d-ad1b-4f1d-9ac9-34469b194323
 spec:
   ingressClassName: nginx
   rules:
@@ -43,7 +36,3 @@ spec:
               number: 4466
         path: /prisma
         pathType: Prefix
-status:
-  loadBalancer:
-    ingress:
-    - hostname: localhost

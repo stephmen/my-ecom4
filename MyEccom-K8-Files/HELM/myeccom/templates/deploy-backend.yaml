@@ -1,16 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    deployment.kubernetes.io/revision: "8"
-  creationTimestamp: "2022-04-12T03:08:21Z"
-  generation: 12
   labels:
     app: backend
   name: backend
   namespace: {{ .Values.project.namespace }}
-  resourceVersion: "638773"
-  uid: dee53140-ceca-4369-9b77-50df9396bea4
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
@@ -66,22 +60,4 @@ spec:
       schedulerName: default-scheduler
       securityContext: {}
       terminationGracePeriodSeconds: 30
-status:
-  availableReplicas: 1
-  conditions:
-    - lastTransitionTime: "2022-04-26T23:35:24Z"
-      lastUpdateTime: "2022-04-27T15:24:40Z"
-      message: ReplicaSet "backend-cf79dc879" has successfully progressed.
-      reason: NewReplicaSetAvailable
-      status: "True"
-      type: Progressing
-    - lastTransitionTime: "2022-05-03T01:05:14Z"
-      lastUpdateTime: "2022-05-03T01:05:14Z"
-      message: Deployment has minimum availability.
-      reason: MinimumReplicasAvailable
-      status: "True"
-      type: Available
-  observedGeneration: 12
-  readyReplicas: 1
-  replicas: 1
-  updatedReplicas: 1
+

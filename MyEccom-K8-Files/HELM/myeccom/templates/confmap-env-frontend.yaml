@@ -4,8 +4,6 @@ data:
   PRODENDPOINT: http://myeccom2.com/graphql
 kind: ConfigMap
 metadata:
-  creationTimestamp: "2022-04-12T16:14:46Z"
   name: env-frontend
   namespace: {{ .Values.project.namespace }}
-  resourceVersion: "620933"
-  uid: a5f2418b-8c99-4f28-9802-c770231e95cb
+  

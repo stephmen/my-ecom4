@@ -1,16 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    deployment.kubernetes.io/revision: "2"
-  creationTimestamp: "2022-04-08T21:46:08Z"
-  generation: 6
   labels:
     app: frontend
   name: frontend
   namespace: {{ .Values.project.namespace }}
-  resourceVersion: "638754"
-  uid: 40d55a2e-022d-4227-ab6c-c8e2f68787f3
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
@@ -51,22 +45,3 @@ spec:
       schedulerName: default-scheduler
       securityContext: {}
       terminationGracePeriodSeconds: 30
-status:
-  availableReplicas: 1
-  conditions:
-    - lastTransitionTime: "2022-04-08T21:46:08Z"
-      lastUpdateTime: "2022-04-25T22:54:49Z"
-      message: ReplicaSet "frontend-874459977" has successfully progressed.
-      reason: NewReplicaSetAvailable
-      status: "True"
-      type: Progressing
-    - lastTransitionTime: "2022-05-03T01:05:12Z"
-      lastUpdateTime: "2022-05-03T01:05:12Z"
-      message: Deployment has minimum availability.
-      reason: MinimumReplicasAvailable
-      status: "True"
-      type: Available
-  observedGeneration: 6
-  readyReplicas: 1
-  replicas: 1
-  updatedReplicas: 1

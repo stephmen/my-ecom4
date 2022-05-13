@@ -1,13 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  creationTimestamp: "2022-04-18T17:14:25Z"
   labels:
     app: backend
   name: backend
   namespace: {{ .Values.project.namespace }}
-  resourceVersion: "351908"
-  uid: 00d89b7c-50ab-427e-9570-fbc23cad6a0e
 spec:
   internalTrafficPolicy: Cluster
   ipFamilies:
@@ -21,5 +18,4 @@ spec:
     app: backend
   sessionAffinity: None
   type: ClusterIP
-status:
-  loadBalancer: {}
+

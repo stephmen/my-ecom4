@@ -4,13 +4,10 @@ metadata:
   annotations:
     kompose.cmd: kompose convert
     kompose.version: 1.19.0 (f63a961c)
-  creationTimestamp: "2022-04-08T21:08:02Z"
   labels:
     io.kompose.service: prisma
   name: prisma
   namespace: {{ .Values.project.namespace }}
-  resourceVersion: "6304"
-  uid: 512e8d73-f24d-412a-ab83-dfd23409dee9
 spec:
   internalTrafficPolicy: Cluster
   ipFamilies:
@@ -25,5 +22,4 @@ spec:
     io.kompose.service: prisma
   sessionAffinity: None
   type: ClusterIP
-status:
-  loadBalancer: {}
+

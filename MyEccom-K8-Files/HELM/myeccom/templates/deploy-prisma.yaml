@@ -1,18 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    deployment.kubernetes.io/revision: "1"
-    kompose.cmd: kompose convert
-    kompose.version: 1.19.0 (f63a961c)
-  creationTimestamp: "2022-04-08T21:07:49Z"
-  generation: 1
   labels:
     io.kompose.service: prisma
   name: prisma
   namespace: {{ .Values.project.namespace }}
-  resourceVersion: "638795"
-  uid: 999e1e01-9e7c-4a4f-a701-0b0aa2c153df
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
