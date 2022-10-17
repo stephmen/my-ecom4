@@ -27,7 +27,8 @@ spec:
         - env:
             - name: MYSQL_ROOT_PASSWORD
               value: prisma
-          image: mysql:5.7
+          # image: mysql:5.7
+          image: my
           imagePullPolicy: IfNotPresent
           name: mysql
           resources: {}
