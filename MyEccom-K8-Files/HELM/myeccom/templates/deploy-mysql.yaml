@@ -28,7 +28,7 @@ spec:
             - name: MYSQL_ROOT_PASSWORD
               value: prisma
           # image: mysql:5.7
-          image: my
+          image: mysql:latest
           imagePullPolicy: IfNotPresent
           name: mysql
           resources: {}
